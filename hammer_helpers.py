@@ -2,7 +2,6 @@
 # Host Groups
 ###################################
 
-import pdb
 import json
 import subprocess
 from config.satellite import *
@@ -35,7 +34,6 @@ def execute_hammer_cmd(hammer_cmd_arr, **kwargs):
         cmd.append("--%s" % param_name)
         cmd.append(value)
 
-    print " ".join(cmd)
     cmd_result = execute_cmd(cmd)
     if cmd_result["returncode"] == 0:
         return json.loads(cmd_result["stdout"])

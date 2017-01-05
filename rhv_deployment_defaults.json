@@ -1,0 +1,18 @@
+{
+  "name": "rhv",
+  "label": "rhv",
+  "rhv": {
+    "engine_admin_password": "changeme",
+    "data_center_name": "Default",
+    "cluster_name": "Default",
+    "storage_name": "my_storage",
+    "storage_type": "NFS",
+    "storage_address": "192.168.121.1",
+    "cpu_type": "Intel Haswell-noTSX Family",
+    "share_path": "/mnt/storage/nfs_data/rhv_storage",
+    "root_password": "changeme",
+    "organization_id": 1,
+    "engine_host_id": null,
+    "hypervisor_ids": []
+  }
+}

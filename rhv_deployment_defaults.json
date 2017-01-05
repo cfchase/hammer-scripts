@@ -12,7 +12,7 @@
     "share_path": "/mnt/storage/nfs_data/rhv_storage",
     "root_password": "changeme",
     "organization_id": 1,
-    "engine_host_id": null,
-    "hypervisor_ids": []
+    "engine_discovered_host_name": null,
+    "hypervisor_discovered_host_names": []
   }
 }

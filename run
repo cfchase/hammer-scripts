@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 
-import json
+from create_rhv_deployment_data import create_rhv_deployment_data
 from configure_host_groups import configure_host_groups
+from provision_hosts import provision_hosts
 
-DEFAULTS_FILE_LOCATION = "rhv_deployment_defaults.json"
 
-with open(DEFAULTS_FILE_LOCATION) as data_file:
-    deployment = json.load(data_file)
-
+deployment = create_rhv_deployment_data()
 configure_host_groups(deployment)
-
+provision_hosts(deployment)

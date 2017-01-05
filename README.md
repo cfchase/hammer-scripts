@@ -9,5 +9,5 @@
 
 
 ### Known issues
-* ./prepare-org.sh
+* prepare-org.sh
   *  does not replicate fusor task ImportAccessInsights since it's done using PuppetClassImporter instead of an api or hammer command.  Requires more research.

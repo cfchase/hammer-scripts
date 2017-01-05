@@ -18,7 +18,7 @@ def execute_cmd(cmd):
     }
 
 
-def execute_hammer_cmd(hammer_cmd_arr, **kwargs):
+def construct_hammer_cmd(hammer_cmd_arr, **kwargs):
     cmd = [
         "hammer",
         "--server", SERVER,
@@ -34,6 +34,11 @@ def execute_hammer_cmd(hammer_cmd_arr, **kwargs):
         cmd.append("--%s" % param_name)
         cmd.append(value)
 
+    return cmd
+
+
+def execute_hammer_cmd(hammer_cmd_arr, **kwargs):
+    cmd = construct_hammer_cmd(hammer_cmd_arr, **kwargs)
     cmd_result = execute_cmd(cmd)
     if cmd_result["returncode"] == 0:
         return json.loads(cmd_result["stdout"])
@@ -42,7 +47,7 @@ def execute_hammer_cmd(hammer_cmd_arr, **kwargs):
 
 
 def get_content_view(name):
-    return execute_hammer_cmd(["content-view", "info"], name=name, organization=ORG_NAME)
+    return execute_hammer_cmd(["content-view", "info"], name=name, organization=DEFAULT_ORG_NAME)
 
 
 def get_subnet(name):
@@ -61,10 +66,14 @@ def get_hostgroup(name):
     return execute_hammer_cmd(["hostgroup", "info"], name=name)
 
 
+def get_discovered_hosts():
+    return execute_hammer_cmd(["discovery", "list"])
+
+
 def check_exists(hammer_type, name, uses_org=True):
     try:
         if uses_org:
-            execute_hammer_cmd([hammer_type, "info"], name=name, organization=ORG_NAME)
+            execute_hammer_cmd([hammer_type, "info"], name=name, organization=DEFAULT_ORG_NAME)
         else:
             execute_hammer_cmd([hammer_type, "info"], name=name)
     except Exception as e:
@@ -83,7 +92,7 @@ def create_hostgroup(name, **kwargs):
         print("Skipping creation of host group %s.  Host group already created" % name)
         return
 
-    result = execute_hammer_cmd(["hostgroup", "create"], name=name, organization=ORG_NAME, **kwargs)
+    result = execute_hammer_cmd(["hostgroup", "create"], name=name, organization=DEFAULT_ORG_NAME, **kwargs)
     print("Completed creating host group " + name)
     return result
 
@@ -104,8 +113,20 @@ def create_activation_key(name, **kwargs):
         print("Skipping creation of activation key %s. Activation key already created" % name)
         return
 
-    result = execute_hammer_cmd(["activation-key", "create"], name=name, organization=ORG_NAME, **kwargs)
+    result = execute_hammer_cmd(["activation-key", "create"], name=name, organization=DEFAULT_ORG_NAME, **kwargs)
     print("Completed creating activation key " + name)
     return result
 
 
+def provision_host(discovered_hostname, new_hostname, hostgroup, **kwargs):
+    print("Attempting to provisioning discovered host %s to become %s in hostgroup %s" % (discovered_hostname, new_hostname, hostgroup))
+    result = execute_hammer_cmd(["discovery", "provision"],
+                                name=discovered_hostname,
+                                new_name=new_hostname,
+                                hostgroup=hostgroup,
+                                build="true",
+                                enabled="true",
+                                managed="true",
+                                **kwargs)
+    print("Triggered provisioning of host %s in hostgroup %s from discovered host %s" % (new_hostname, hostgroup, discovered_hostname))
+    return result

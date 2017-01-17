@@ -1,7 +1,7 @@
 from config import satellite
 from config import rhv
 
-from hammer_helpers import *
+from utils.hammer import *
 
 
 def configure_host_groups(deployment):
@@ -39,7 +39,6 @@ def configure_host_groups(deployment):
                           lifecycle_environment=rhv.LIFECYCLE,
                           content_view=rhv.CONTENT_VIEW)
     set_hostgroup_param("RHV-Engine", "kt_activation_keys", key_name)
-
 
     hg_name = "RHV-Hypervisor"
     create_hostgroup(hg_name,

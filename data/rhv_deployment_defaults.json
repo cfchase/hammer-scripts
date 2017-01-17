@@ -6,13 +6,20 @@
     "data_center_name": "Default",
     "cluster_name": "Default",
     "storage_name": "my_storage",
-    "storage_type": "NFS",
+    "storage_type": "nfs",
     "storage_address": "192.168.121.1",
-    "cpu_type": "Intel Haswell-noTSX Family",
     "share_path": "/mnt/storage/nfs_data/rhv_storage",
+    "cpu_type": "Intel Haswell-noTSX Family",
+    "cpu_model":  "model_Haswell-noTSX",
     "root_password": "changeme",
     "organization_id": 1,
+    "create_export_domain": false,
+    "export_domain_address": null,
+    "export_domain_name": null,
+    "export_domain_path": null,
     "engine_discovered_host_name": null,
-    "hypervisor_discovered_host_names": []
+    "hypervisor_discovered_host_names": [],
+    "engine": null,
+    "hypervisors": []
   }
 }

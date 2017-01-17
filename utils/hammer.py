@@ -1,21 +1,10 @@
 ###################################
-# Host Groups
+# Hammer
 ###################################
 
 import json
-import subprocess
+from shell import execute_cmd
 from config.satellite import *
-
-
-def execute_cmd(cmd):
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    out, err = proc.communicate()
-    proc.wait()
-    return {
-        "returncode": proc.returncode,
-        "stdout": out,
-        "stderr": err,
-    }
 
 
 def construct_hammer_cmd(hammer_cmd_arr, **kwargs):

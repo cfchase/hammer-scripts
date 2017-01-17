@@ -1,10 +1,28 @@
 #!/usr/bin/env python
 
-from create_rhv_deployment_data import create_rhv_deployment_data
+import data
 from configure_host_groups import configure_host_groups
 from provision_hosts import provision_hosts
+from install_rhv import install_rhv
+from create_compute_resource import create_compute_resource
 
 
-deployment = create_rhv_deployment_data()
+deployment = data.create_rhv_deployment_data()
+data.write_rhv_deployment_data(deployment)
+
+deployment = data.read_rhv_deployment_data()
 configure_host_groups(deployment)
+data.write_rhv_deployment_data(deployment)
+
+deployment = data.read_rhv_deployment_data()
 provision_hosts(deployment)
+data.write_rhv_deployment_data(deployment)
+
+deployment = data.read_rhv_deployment_data()
+install_rhv(deployment)
+data.write_rhv_deployment_data(deployment)
+
+# deployment = data.read_rhv_deployment_data()
+# create_compute_resource(deployment)
+# data.write_rhv_deployment_data(deployment)
+

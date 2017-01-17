@@ -1,0 +1,450 @@
+:fusor:
+  :content:
+    :content_view:
+      :composite_view_name: "Fusor Deployment"
+      :rpm_component_view_name: "Fusor RPM Content"
+      :puppet_component_view_name: "Fusor Puppet Content"
+
+    # NOTE: product_name and repository_set_name are provided only for
+    # convenience / display purposes. All repository finding should be
+    # driven off of product_id / repository_set_id, as those are the only
+    # things guaranteed not to change.
+    :rhevm:
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2456"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server (RPMs)"
+        :repository_set_label: "rhel-7-server-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2455"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server (Kickstart)"
+        :repository_set_label: "rhel-7-server-kickstart"
+        :basearch: "x86_64"
+        :releasever: "7.3"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "4831"
+        :repository_set_name: "Red Hat Satellite Tools 6.2 (for RHEL 7 Server) (RPMs)"
+        :repository_set_label: "rhel-7-server-satellite-tools-6.2-rpms"
+        :basearch: "x86_64"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2476"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server - Supplementary (RPMs)"
+        :repository_set_label: "rhel-7-server-supplementary-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Virtualization"
+        :product_id: "150"
+        :repository_set_id: "5024"
+        :repository_set_name: "Red Hat Virtualization Manager 4.0 (RHEL 7 Server) (RPMs)"
+        :repository_set_label: "rhel-7-server-rhv-4.0-rpms"
+        :basearch: "x86_64"
+
+      - :product_name: "JBoss Enterprise Application Platform"
+        :product_id: "183"
+        :repository_set_id: "4474"
+        :repository_set_name: "JBoss Enterprise Application Platform 7 (RHEL 7 Server) (RPMs)"
+        :repository_set_label: "jb-eap-7-for-rhel-7-server-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2463"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server - Optional (RPMs)"
+        :repository_set_label: "rhel-7-server-optional-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+    :rhevh:
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2456"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server (RPMs)"
+        :repository_set_label: "rhel-7-server-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2455"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server (Kickstart)"
+        :repository_set_label: "rhel-7-server-kickstart"
+        :basearch: "x86_64"
+        :releasever: "7.3"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "4831"
+        :repository_set_name: "Red Hat Satellite Tools 6.2 (for RHEL 7 Server) (RPMs)"
+        :repository_set_label: "rhel-7-server-satellite-tools-6.2-rpms"
+        :basearch: "x86_64"
+
+      - :product_name: "Red Hat Enterprise Virtualization"
+        :product_id: "150"
+        :repository_set_id: "5132"
+        :repository_set_name: "Red Hat Virtualization 4 Management Agents for RHEL 7 (RPMs)"
+        :repository_set_label: "rhel-7-server-rhv-4-mgmt-agent-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2476"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server - Supplementary (RPMs)"
+        :repository_set_label: "rhel-7-server-supplementary-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2463"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server - Optional (RPMs)"
+        :repository_set_label: "rhel-7-server-optional-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+    :rhevsh:
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2456"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server (RPMs)"
+        :repository_set_label: "rhel-7-server-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2455"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server (Kickstart)"
+        :repository_set_label: "rhel-7-server-kickstart"
+        :basearch: "x86_64"
+        :releasever: "7.3"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "4831"
+        :repository_set_name: "Red Hat Satellite Tools 6.2 (for RHEL 7 Server) (RPMs)"
+        :repository_set_label: "rhel-7-server-satellite-tools-6.2-rpms"
+        :basearch: "x86_64"
+
+      - :product_name: "Red Hat Enterprise Virtualization"
+        :product_id: "150"
+        :repository_set_id: "5132"
+        :repository_set_name: "Red Hat Virtualization 4 Management Agents for RHEL 7 (RPMs)"
+        :repository_set_label: "rhel-7-server-rhv-4-mgmt-agent-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2476"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server - Supplementary (RPMs)"
+        :repository_set_label: "rhel-7-server-supplementary-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2463"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server - Optional (RPMs)"
+        :repository_set_label: "rhel-7-server-optional-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+    :cloudforms:
+      - :product_name: "Red Hat CloudForms"
+        :product_id: "167"
+        :repository_set_id: "5233"
+        :repository_set_name: "Red Hat CloudForms Management Engine 5.6 (Files)"
+        :repository_set_label: "cf-me-5.6-for-rhel-7-files"
+        :basearch: "x86_64"
+        # Default behavior is to use the latest available image found
+        # in the repository if either :rhos_image_file_name or :rhev_image_file_name
+        # are commented out.
+        #
+        #:rhos_image_file_name: "cfme-rhos-5.6.1.2-1.x86_64.qcow2"
+        #:rhev_image_file_name: "cfme-rhevm-5.6.1.2-1.x86_64.rhevm.ova"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2455"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server (Kickstart)"
+        :repository_set_label: "rhel-7-server-kickstart"
+        :basearch: "x86_64"
+        :releasever: "7.3"
+        # Need Red Hat 7.3 Operating System setup including Media,
+        # architecture, and other associations.
+
+    :openshift:
+      - :product_name: "Red Hat OpenShift Enterprise"
+        :product_id: "290"
+        :repository_set_id: "5253"
+        :repository_set_name: "Red Hat OpenShift Enterprise 3.3 (RPMs)"
+        :repository_set_label: "rhel-7-server-ose-3.3-rpms"
+        :basearch: "x86_64"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2456"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server (RPMs)"
+        :repository_set_label: "rhel-7-server-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2455"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server (Kickstart)"
+        :repository_set_label: "rhel-7-server-kickstart"
+        :basearch: "x86_64"
+        :releasever: "7.3"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2472"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server - RH Common (RPMs)"
+        :repository_set_label: "rhel-7-server-rh-common-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "3030"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server - Extras (RPMs)"
+        :repository_set_label: "rhel-7-server-extras-rpms"
+        :basearch: "x86_64"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2463"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server - Optional (RPMs)"
+        :repository_set_label: "rhel-7-server-optional-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "4831"
+        :repository_set_name: "Red Hat Satellite Tools 6.2 (for RHEL 7 Server) (RPMs)"
+        :repository_set_label: "rhel-7-server-satellite-tools-6.2-rpms"
+        :basearch: "x86_64"
+
+
+    :openstack:
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2456"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server (RPMs)"
+        :repository_set_label: "rhel-7-server-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2455"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server (Kickstart)"
+        :repository_set_label: "rhel-7-server-kickstart"
+        :basearch: "x86_64"
+        :releasever: "7.3"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "3030"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server - Extras (RPMs)"
+        :repository_set_label: "rhel-7-server-extras-rpms"
+        :basearch: "x86_64"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2463"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server - Optional (RPMs)"
+        :repository_set_label: "rhel-7-server-optional-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "2472"
+        :repository_set_name: "Red Hat Enterprise Linux 7 Server - RH Common (RPMs)"
+        :repository_set_label: "rhel-7-server-rh-common-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Enterprise Linux Server"
+        :product_id: "69"
+        :repository_set_id: "4831"
+        :repository_set_name: "Red Hat Satellite Tools 6.2 (for RHEL 7 Server) (RPMs)"
+        :repository_set_label: "rhel-7-server-satellite-tools-6.2-rpms"
+        :basearch: "x86_64"
+
+      - :product_name: "Red Hat OpenStack"
+        :product_id: "191"
+        :repository_set_id: "5055"
+        :repository_set_name: "Red Hat OpenStack Platform 10 for RHEL 7 (RPMs)"
+        :repository_set_label: "rhel-7-server-openstack-10-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat OpenStack"
+        :product_id: "191"
+        :repository_set_id: "5057"
+        :repository_set_name: "Red Hat OpenStack Platform 10 for RHEL 7 (Files)"
+        :repository_set_label: "rhel-7-server-openstack-10-files"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+      - :product_name: "Red Hat Software Collections for RHEL Server"
+        :product_id: "201"
+        :repository_set_id: "2808"
+        :repository_set_name: "Red Hat Software Collections RPMs for Red Hat Enterprise Linux 7 Server"
+        :repository_set_label: "rhel-server-rhscl-7-rpms"
+        :basearch: "x86_64"
+        :releasever: "7Server"
+
+  :puppet_classes:
+
+  :docker_repos:
+    - :name: "ose-docker-registry"
+      :upstream_name: "openshift3/ose-docker-registry"
+    - :name: "ose-haproxy-router"
+      :upstream_name: "openshift3/ose-haproxy-router"
+    - :name: "ose-deployer"
+      :upstream_name: "openshift3/ose-deployer"
+    - :name: "ose-sti-builder"
+      :upstream_name: "openshift3/ose-sti-builder"
+    - :name: "ose-pod"
+      :upstream_name: "openshift3/ose-pod"
+    - :name: "ose-docker-builder"
+      :upstream_name: "openshift3/ose-docker-builder"
+    - :name: "ose-keepalived-ipfailover"
+      :upstream_name: "openshift3/ose-keepalived-ipfailover"
+
+  :host_groups:
+    :rhev:
+     :root_name: "Fusor Base" # seeded by the fusor-installer
+     :host_groups:
+       - :parent: "Fusor Base"
+
+       - :name: "RHV-Engine"
+         :os: "RedHat"
+         :major: "7"
+         :minor: "3"
+         :parent: :root_deployment
+         :puppet_classes:
+         :activation_key:
+           :name: "RHV-Engine"
+           :content: :rhevm
+           :subscription_descriptions:
+             - "Red Hat Cloud Infrastructure"
+
+       - :name: "RHV-Hypervisor"
+         :os: "RedHat"
+         :major: "7"
+         :minor: "3"
+         :parent: :root_deployment
+         :puppet_classes:
+         :activation_key:
+           :name: "RHV-Hypervisor"
+           :content: :rhevh
+           :subscription_descriptions:
+             - "Red Hat Cloud Infrastructure"
+
+       - :name: "RHV-Self-hosted"
+         :os: "RedHat"
+         :major: "7"
+         :minor: "3"
+         :ptable: "rhev_self_hosted"
+         :parent: :root_deployment
+         :puppet_classes:
+         :activation_key:
+           :name: "RHV-Self-hosted"
+           :content: :rhevsh
+           :subscription_descriptions:
+             - "Red Hat Cloud Infrastructure"
+
+    :openshift:
+     :root_name: "Fusor Base" # seeded by the fusor-installer
+     :host_groups:
+       - :parent: "Fusor Base"
+
+       - :name: "OpenShift"
+         :os: "RedHat"
+         :major: "7"
+         :minor: "3"
+         :parent: :root_deployment
+         :activation_key:
+           :name: "OpenShift"
+           :content: :openshift
+           :subscription_descriptions:
+             - "Red Hat Cloud Infrastructure"
+             - "OpenShift Enterprise"
+
+    :openstack:
+     :root_name: "Fusor Base" # seeded by the fusor-installer
+     :host_groups:
+       - :parent: "Fusor Base"
+
+       - :name: "OpenStack-Undercloud"
+         :parent: :root_deployment
+         :os: "RedHat"
+         :major: "7"
+         :minor: "3"
+         :activation_key:
+           :name: "OpenStack-Undercloud"
+           :content: :openstack
+           :subscription_descriptions:
+             - "Red Hat Cloud Infrastructure"
+
+    :cfme:
+     :root_name: "Fusor Base" # seeded by the fusor-installer
+     :host_groups:
+       - :parent: "Fusor Base"
+
+       - :name: "Cloudforms"
+         :parent: :root_deployment
+         :os: "RedHat"
+         :major: "7"
+         :minor: "3"
+         :activation_key:
+           :name: "Cloudforms"
+           :content: :cloudforms
+           :subscription_descriptions:
+             - "Cloudforms"
+
+  :system:
+    :logging:
+      :level: ":debug"
+      :ansible_debug: false # Enable verbose debug logging for ansible
+      :show_passwords: false # show passwords in logs for non-prod environments
+      :watch:
+        :production:
+          - :file: "/var/log/foreman/production.log"
+          - :file: "/var/log/foreman-proxy/proxy.log"
+          - :file: "/var/log/candlepin/candlepin.log"
+          - :file: "/var/log/messages"
+        :development:
+          - :file: "#{Rails.root}/log/development.log"
+          - :file: "/var/log/foreman-proxy/proxy.log"
+          - :file: "/var/log/candlepin/candlepin.log"
+          - :file: "/var/log/messages"
+    :silenced_logging:
+      :enable: false
+      :paths:
+        - "api/v21/foreman_tasks"
+        - "fusor/api/v21/unlogged"
+        - "katello/cp_proxy"
+        - "katello/cp_rest"
+        - "katello/pulp_rest"
+        - "foreman-tasks/dynflow"
+        - "foreman-tasks/action"
+
+  :puppet_module:

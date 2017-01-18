@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-#AUTH="-s https://sat62rpm.example.com -u admin -p changeme"
-SERVER='https://sat62rpm.example.com'
+SERVER='https://satellite.fusor.net'
 USERNAME='admin'
 PASSWORD='changeme'
 ORG="--organization-label Default_Organization"

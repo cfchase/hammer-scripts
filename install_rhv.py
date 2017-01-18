@@ -18,26 +18,21 @@ def install_rhv(deployment):
     config_dir = os.path.dirname(__file__) + "/tmp/ansible"
 
     inventory = generate_inventory(deployment)
-    print(inventory)
     inv_file_path = "%s/%s_inventory" % (config_dir, deployment["label"])
     with open(inv_file_path, "w") as outfile:
         outfile.write(inventory)
 
     ansible_vars = generate_vars(deployment)
-    pprint(ansible_vars)
     vars_file_path = "%s/%s_vars.yaml" % (config_dir, deployment["label"])
     with open(vars_file_path, "w") as outfile:
         yaml.safe_dump(dict(ansible_vars), outfile, default_flow_style=False)
-    print(inventory)
 
     environment = generate_environment(deployment, config_dir)
-    pprint(environment)
 
     distribute_public_key(deployment)
 
     run_ansible(playbook, inv_file_path, vars_file_path, environment)
 
-    # TODO: Poll and wait until complete
     print("****************** Completed Deployment of RHV ******************")
 
 

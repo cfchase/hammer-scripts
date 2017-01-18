@@ -1,4 +1,5 @@
 import os
+import datetime
 from config import rhv
 from utils.hammer import *
 
@@ -31,6 +32,12 @@ def read_rhv_deployment_data():
 
 def write_rhv_deployment_data(deployment):
     with open(os.path.dirname(__file__) + "/tmp/rhv_deployment.json", "w") as outfile:
+        json.dump(deployment, outfile)
+
+
+def backup_rhv_deployment_data(deployment):
+    date_str = "{:%Y-%m-%d-%H:%M:%S:%f}".format(datetime.datetime.now())
+    with open(os.path.dirname(__file__) + "/tmp/rhv_deployment_%s.json" % date_str, "w") as outfile:
         json.dump(deployment, outfile)
 
 

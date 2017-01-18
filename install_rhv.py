@@ -48,11 +48,11 @@ def generate_inventory(deployment):
     hypervisor_repositories = repositories_for("rhevh")
     return "\n".join([
         "[engine]",
-        "%s mac_address=%s" % (engine["fqdn"], engine["mac"]),
+        "%s mac_address=%s" % (engine["Name"], engine["Network"]["MAC"]),
         "[engine:vars]",
         "repositories=" + engine_repositories,
         "[hypervisors]",
-        "\n".join(list(map(lambda h: h["fqdn"], hypervisors))),
+        "\n".join(list(map(lambda h: h["Name"], hypervisors))),
         "[hypervisors:vars]",
         "repositories=" + hypervisor_repositories
     ])
@@ -80,8 +80,8 @@ def generate_vars(deployment):
         "export_storage_path": deployment["rhv"]["export_domain_path"],
         "engine_activation_key": engine_activation_key,
         "engine_db_password": deployment["rhv"]["engine_admin_password"],
-        "engine_fqdn": deployment["rhv"]["engine"]["fqdn"],
-        "engine_mac_address": deployment["rhv"]["engine"]["mac"],
+        "engine_fqdn": deployment["rhv"]["engine"]["Name"],
+        "engine_mac_address": deployment["rhv"]["engine"]["Network"]["MAC"],
         "gateway": gateway,
         "mac_address_range": mac_address_range,
         "mac_pool_name": "qci",
@@ -154,9 +154,9 @@ def generate_environment(deployment, config_dir):
 
 def distribute_public_key(deployment):
     data.write_ssh_keys(deployment)
-    copy_keys_to_root(deployment["rhv"]["engine"]["fqdn"], deployment["rhv"]["root_password"])
+    copy_keys_to_root(deployment["rhv"]["engine"]["Name"], deployment["rhv"]["root_password"])
     for host in deployment["rhv"]["hypervisors"]:
-        copy_keys_to_root(host["fqdn"], deployment["rhv"]["root_password"])
+        copy_keys_to_root(host["Name"], deployment["rhv"]["root_password"])
 
 
 def copy_keys_to_root(hostname, password):

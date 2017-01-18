@@ -55,9 +55,16 @@ def get_hostgroup(name):
     return execute_hammer_cmd(["hostgroup", "info"], name=name)
 
 
+def get_hosts():
+    return execute_hammer_cmd(["host", "list"])
+
+
+def get_host(name):
+    return execute_hammer_cmd(["host", "info"], name=name)
+
+
 def get_discovered_hosts():
     return execute_hammer_cmd(["discovery", "list"])
-
 
 def check_exists(hammer_type, name, uses_org=True):
     try:

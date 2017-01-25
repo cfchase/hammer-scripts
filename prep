@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+./prepare-org.sh
+./manage-content.sh

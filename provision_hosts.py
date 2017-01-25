@@ -35,6 +35,7 @@ def provision_hosts(deployment):
         in_progress = not fully_provisioned(deployment)
         time.sleep(30)
 
+    time.sleep(60)
     get_rhv_hosts(deployment)
 
     print("****************** Completed Provisioning of Hosts ******************")
@@ -58,4 +59,4 @@ def fully_provisioned(deployment):
 
 
 def is_provisioned(host):
-    return host and host.get("Managed") and host.get("Installed at")
+    return host and host.get("Managed") and host.get("Installed at") and host["Additional info"]["Model"]["errata_status"] == 0

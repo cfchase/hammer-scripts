@@ -126,3 +126,10 @@ def provision_host(discovered_hostname, new_hostname, hostgroup, **kwargs):
                                 **kwargs)
     print("Triggered provisioning of host %s in hostgroup %s from discovered host %s" % (new_hostname, hostgroup, discovered_hostname))
     return result
+
+
+def create_compute_resource(name, **kwargs):
+    print("Creating compute resource " + name)
+    result = execute_hammer_cmd(["compute-resource", "create"], name=name, organizations=DEFAULT_ORG_NAME, **kwargs)
+    print("Successfully created compute resource %s" % name)
+    return result
